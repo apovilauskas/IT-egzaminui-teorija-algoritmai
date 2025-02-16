@@ -8,7 +8,7 @@
        else b.back().k+=a[i].k;
     }
 
----
+```
 
 bubble sort islaikantis eiliskuma
 
