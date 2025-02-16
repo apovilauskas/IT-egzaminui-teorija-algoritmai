@@ -46,6 +46,6 @@ for(int i = 0; i < n; i++){
 else {
         streak = 0;
     }
-
-```
 }
+```
+
