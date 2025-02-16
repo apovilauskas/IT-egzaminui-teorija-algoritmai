@@ -1,49 +1,46 @@
-#include <bits/stdc++.h>
-
-struct pirstine{
-    int lytis; //3 vyras 4 moteris
-    int ranka; //1 kaire 2 desine
-    int dydis;
-    bool naudojama = 1;
-};
-
-int main()
-{
-    std::ifstream fd("U1.txt"); 
-    std::ofstream fr("U1rez.txt");
-    
-    int n;
-    fd >> n;
-    int vyrisku=0, moterisku=0;
-    int tvyr=0, tmot=0;
-    std::vector<pirstine> a(n);
-    std::vector<pirstine> b;
-    for(int i=0; i<n; i++){
-        fd >> a[i].lytis >> a[i].ranka >> a[i].dydis;
-        if(a[i].lytis == 3)vyrisku++;
-        else moterisku++;
-    }
-    
+kai jau susortinai ir nori i nauja vektoriu idet kad nesikartotu
+ 
     for(int i=0; i<a.size(); i++){
-        for(int j=i+1; j<a.size(); j++){
-            if(a[i].lytis == a[j].lytis && a[i].ranka != a[j].ranka && 
-            a[i].dydis == a[j].dydis && a[i].naudojama ==1){
-                b.push_back(a[i]);
-                a[i].naudojama =0;
-                a[j].naudojama = 0;
+       if(b.empty() || b.back().pratimas != a[i].pratimas){
+           b.push_back(a[i]);
+       }
+       else b.back().k+=a[i].k;
+    }
+
+---
+
+bubble sort islaikantis eiliskuma
+
+for (int i = 0; i < a.size(); i++) {
+        for (int j = 0; j < a.size() - 1; j++) {
+            if (a[j].ats < a[j+1].ats) {
+                std::swap(a[j], a[j+1]);
             }
         }
     }
-    
-    for(int i=0; i<b.size(); i++){
-        if(b[i].lytis == 3) tvyr ++;
-        else tmot++;
-    }
-    
-    fr << tmot <<'\n';
-    fr << tvyr <<'\n';
-    fr << moterisku-(tmot*2) <<'\n';
-    fr << vyrisku-tvyr*2 <<'\n';
 
-    return 0;
+rasti kiek porų yra
+
+ std::sort(v.begin(), v.end()); // Sort the vector
+    int pairs = 0;
+
+    for(int i = 0; i < v.size() - 1; i++) {
+        if(v[i] == v[i + 1]) { 
+            pairs++;  // Found a pair
+            i++; // Skip the next element since it's already counted in a pair
+        }
+    }
+
+ilgiausias streak (iš eilės)
+
+    int streak = 0;
+    int max=0;
+for(int i = 0; i < n; i++){
+    if(a[i] > requirement) {
+        streak++;
+        if (streak > max) max = streak;
+    } 
+else {
+        streak = 0;
+    }
 }
