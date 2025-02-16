@@ -48,4 +48,14 @@ else {
     }
 }
 ```
-
+du didziausi elementai
+```
+ for(int i=0; i<n; i++){
+    if(a[i] > d) {
+        d1 = d;
+        d= a[i];
+    }
+    else if(a[i] >d1) d1 = a[i];
+  }
+  fr << d +d1;
+```
