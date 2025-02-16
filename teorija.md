@@ -1,5 +1,6 @@
-kai jau susortinai ir nori i nauja vektoriu idet kad nesikartotu
- 
+```cpp
+ kai jau susortinai ir nori i nauja vektoriu idet kad nesikartotu
+
     for(int i=0; i<a.size(); i++){
        if(b.empty() || b.back().pratimas != a[i].pratimas){
            b.push_back(a[i]);
