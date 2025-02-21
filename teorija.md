@@ -59,3 +59,27 @@ du didziausi elementai
   }
   fr << d +d1;
 ```
+pasikartojimų dažnių skaičiavimas su vektoriais
+```
+std::vector<int> a(10, 0); //privalai zinoti imanomu skaiciu amplitude, esminis skirtumas nuo mapsu
+for (int i = 0; i < n; i++) {
+    int temp;
+    fd >> temp;
+    a[temp]++;
+}
+
+int max=0; //max radimas
+    for(int i=0; i<a.size(); i++){
+        if(a[i] > max) max = a[i];
+    }
+
+bool first = true; // isvedame su kableliais: "4,5,6"
+for (int i = 0; i < 10; i++) {
+    if (a[i] == max_count) {
+        if (!first) fr << ',';
+        fr << i;
+        first = false;
+    }
+}
+
+```
