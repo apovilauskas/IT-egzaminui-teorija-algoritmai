@@ -6,6 +6,14 @@
        }
        else b.back().k+=a[i].k;
     }
+//arba
+
+std::vector<int>unique;
+    
+    unique.push_back(a[0]);
+    for(int i=1; i<a.size(); i++){
+        if(a[i] != a[i-1]) unique.push_back(a[i]); 
+    }
 
 ```
 
@@ -180,3 +188,23 @@ for (int i = 0; i < a.size() && count < 3; i++) {
         count++;
     }
 }
+```
+artimiausias vidurkiui skaicius
+```
+
+    double vidurkis=0;
+    for(int i=0; i<a.size(); i++){
+        vidurkis+= a[i];
+    }
+    vidurkis = vidurkis/a.size();
+    
+    double atstumas=DBL_MAX;
+    int artimiausias;
+    
+    for(int i=0; i<a.size(); i++){
+        if(abs(a[i]-vidurkis) < atstumas){
+            atstumas = abs(a[i]-vidurkis);
+            artimiausias = a[i];
+        }
+    }
+```
