@@ -9,7 +9,7 @@
 
 ```
 
-bubble sort islaikantis eiliskuma
+bubble sort islaikantis eiliskuma (stable)
 
 ```
 for (int i = 0; i < a.size(); i++) {
@@ -29,35 +29,53 @@ rasti kiek porų yra
 
     for(int i = 0; i < v.size() - 1; i++) {
         if(v[i] == v[i + 1]) { 
-            pairs++;  // Found a pair
-            i++; // Skip the next element since it's already counted in a pair
+            pairs++;  
+            i++; 
         }
     }
 ```
-ilgiausias streak (iš eilės)
+dazniausias elementas(-ai)
 ```
-    int streak = 0;
-    int max=0;
-for(int i = 0; i < n; i++){
-    if(a[i] > requirement) {
-        streak++;
-        if (streak > max) max = streak;
-    } 
-else {
-        streak = 0;
+      // Bubble sort kad visi skaitmenys eitu is eiles, tada skaiciuoji streak
+    for (int i = 0; i < a.size(); i++) {
+        for (int j = 0; j < a.size() - 1; j++) {
+            if (a[j].skaitmuo < a[j + 1].skaitmuo) std::swap(a[j], a[j + 1]);
+        }
     }
+
+    int streak = 0;
+    for (int i = 1; i < a.size(); i++) {
+        if (a[i].skaitmuo == a[i - 1].skaitmuo) streak++;
+        else streak = 1;
+        
+        if (streak > max) {
+            max = streak;
+            maxi = a[i].skaitmuo;
+        }
 }
+//o jei reikia rasti visus dazniausius, nebenaudoji maxi, naudoji nauja masyva pvz maxm
+//tada vel iteruoji ir jei max daznis sutampa su turimu streak'u, push_back
+std::vector<skaiciai> maxm;
+    streak = 1;
+    for (int i = 1; i < a.size(); i++) {
+        if (a[i].skaitmuo == a[i - 1].skaitmuo) streak++;
+        else streak = 1;
+        
+        if (streak == max) maxi.push_back(a[i]);
+    }
+
 ```
-du didziausi elementai
+du didziausi elementai (be rikiavimo)
 ```
- for(int i=0; i<n; i++){
+int d, d1;
+for(int i=0; i<n; i++){
     if(a[i] > d) {
         d1 = d;
         d= a[i];
     }
     else if(a[i] >d1) d1 = a[i];
   }
-  fr << d +d1;
+  fr << d  << ' ' <<d1;
 ```
 pasikartojimų dažnių skaičiavimas su vektoriais
 ```
@@ -81,5 +99,8 @@ for (int i = 0; i < 10; i++) {
         first = false;
     }
 }
+
+```
+reikia rasti k didziausiu elemetu
 
 ```
