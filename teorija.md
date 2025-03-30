@@ -208,3 +208,10 @@ artimiausias vidurkiui skaicius
         }
     }
 ```
+ar skaicius pirminis
+```
+if(sk <2) return 0;
+for(int i=2; i*i<=sk; i++){
+if(sk%i == 0) return 0;
+}
+return 1;
